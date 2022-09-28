@@ -166,3 +166,26 @@ y.then(()=>{console.log('promise resolved')}).catch(()=>{console.log('promise re
 }
 
 exe()
+
+//9 Create examples to explain promise.all function
+let x = 0
+let p1 = new Promise((resolve, reject) => {
+    if(x==0)
+    resolve('resolved')
+    else
+    reject('rejected')
+})
+
+let p2 = new Promise((yesTrue, notTrue) => {
+    if (x<5)
+    yesTrue('true')
+    else
+    notTrue('false')
+})
+let p3 = new Promise((right, wrong) => {
+    if(x>-10) 
+    right('correct')
+    else
+    wrong('not correct')
+})
+Promise.all([p1,p2,p3]).then((response)=>{console.log(response)}).catch((response)=>{console.log(response)})
